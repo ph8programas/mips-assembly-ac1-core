@@ -7,8 +7,8 @@
 
 .data
 
-A:     .word ...
-B:     .word ...
+A:     .word 0
+B:     .word 0
 MAIOR: .word 0
 msg: .asciiz "MAIOR = "
 

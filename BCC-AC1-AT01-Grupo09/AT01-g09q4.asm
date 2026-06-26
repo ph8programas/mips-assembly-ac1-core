@@ -7,8 +7,8 @@
 
 .data
 
-INICIO: .word ...
-FIM:    .word ...
+INICIO: .word 4
+FIM:    .word 14
 SOMA:   .word 0
 msg: .asciiz "SOMA = "
 

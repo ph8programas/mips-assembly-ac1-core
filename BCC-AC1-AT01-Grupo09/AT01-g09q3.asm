@@ -7,8 +7,8 @@
 
 .data
 
-A: .word ...
-B: .word ...
+A: .word -6
+B: .word 8
 R: .word 0
 msg: .asciiz "R = "
 
