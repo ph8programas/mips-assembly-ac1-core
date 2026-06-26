@@ -1,0 +1,2 @@
+# mips-assembly-ac1-core
+Implementar programas em linguagem MIPS Assembly utilizando exclusivamente os conceitos, técnicas e instruções estudados em aula.  A atividade tem por objetivo consolidar os conhecimentos relacionados à organização da memória, utilização de registradores, acesso à memória principal, operações aritméticas, estruturas condicionais e laços de repetição, considerando processadores MIPS.
