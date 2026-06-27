@@ -35,7 +35,7 @@ main:
 
 laco:
     # se FIM < contador entao sai do laco
-    slt $t4, $t1, $t3      # if (FIM < cont) $t4 = 1; else $t4 = 0;
+    slt $t4, $t1, $t3      # if FIM < cont t4 = 1 else t4 = 0
     bne $t4, $zero, fim_laco # repete o laco ate t4 == 0
 
     # somatorio			acumulador = 4+4 | acumulador = 8+5 | acumulador = 13+6
@@ -51,13 +51,13 @@ fim_laco:
 #################################################
 mostrar_resultado:
 	## ajeita para printar "SOMA = "
-    ori $v0, $zero, 4      # Codigo 4: print_string
+    ori $v0, $zero, 4      # cod 4 print string
     addi $a0, $s0, 12      # INICIO=0, FIM=4, SOMA=8, msg=12
     syscall
 	
     #exibe valor int
     lw $a0, 8($s0)         # SOMA=8 
-    ori $v0, $zero, 1      # Codigo 1: print_int
+    ori $v0, $zero, 1      # cod 1 print_int
     syscall
 
 #################################################
