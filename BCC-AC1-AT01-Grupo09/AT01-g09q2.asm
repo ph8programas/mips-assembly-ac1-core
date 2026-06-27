@@ -7,8 +7,8 @@
 
 .data
 
-A:     .word 0
-B:     .word 0
+A:     .word 0 #A=0
+B:     .word 0 #B = 0
 MAIOR: .word 0
 msg: .asciiz "MAIOR = "
 
@@ -25,17 +25,29 @@ main:
 #################################################
 # Implementar solução abaixo
 #################################################
+lw $t0, 0($s0) # t0 recebe A
+lw $t1, 4($s0) # t1 recebe B
 
-
+#	 A   < B		
+slt $t2, $t0, $t1 # if(A<B) t2=1 else t2 =0
+bne $t2, $zero, BMAIOR
+AMAIOR:##MAIOR OU IGUAL
+sw $t0, 8($s0)# guarda em MAIOR a variavel A
+j mostrar_resultado
+BMAIOR:
+sw $t1, 8($s0)# guarda em MAIOR a variavel B
+j mostrar_resultado
 
 #################################################
 # Mostrar resultado
 #################################################
+mostrar_resultado:
     # Por aqui as instruções para mostrar 'msg'
-	# Valor/código para $v0: 4
-	# syscall
+    ori $v0, $zero, 4      # Valor codigo para $v0: 4 (Print String)
+    addi $a0, $s0, 12      # 0=A 4=B 8=MAIOR 12=MSG
+    syscall
 	
-	lw $a0, MAIOR      # Ajustar MAIOR para off(reg)
+    lw $a0, 8($s0)     # Carrega o valor de MAIOR usando o offset correto 8($s0)
     ori $v0, $zero, 1
     syscall
 
