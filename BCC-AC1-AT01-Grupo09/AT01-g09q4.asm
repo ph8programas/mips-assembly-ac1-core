@@ -30,21 +30,21 @@ main:
     lw $t1, 4($s0)         # $t1 = FIM
 
     # Inicializa os registradores
-    add $t2, $zero, $zero  # $t2 = soma =0
-    add $t3, $t0, $zero    # $t3 = cont = inicio + zero
+    add $t2, $zero, $zero  # $t2 = acumulador = 0
+    add $t3, $t0, $zero    # $t3 = contador = inicio + 0
 
 laco:
     # se FIM < contador entao sai do laco
     slt $t4, $t1, $t3      # if (FIM < cont) $t4 = 1; else $t4 = 0;
     bne $t4, $zero, fim_laco # repete o laco ate t4 == 0
 
-    # somatorio			soma = 4+4 | soma = 8+5 | soma = 13+6
-    add $t2, $t2, $t3      # soma = soma + cont
+    # somatorio			acumulador = 4+4 | acumulador = 8+5 | acumulador = 13+6
+    add $t2, $t2, $t3      # acumulador = acumulador + contador
     addi $t3, $t3, 1       # cont++
     j laco                 # Volta para o topo do laco
 
 fim_laco:
-    sw $t2, 8($s0)         # guarda o somatorio em SOMA
+    sw $t2, 8($s0)         # guarda o acumulador em SOMA
 
 #################################################
 # Mostrar resultado
